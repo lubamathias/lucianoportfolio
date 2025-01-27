@@ -85,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${exo.className} ${inter.className} ${amaticSc.className}`} >
+    <html lang="pt-BR">
         <head>
         {/* Fallback manual para o favicon */}
         <link rel="icon" href="/favicon.ico" />
