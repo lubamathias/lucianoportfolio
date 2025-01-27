@@ -39,11 +39,44 @@ export const metadata: Metadata = {
     "portfólio de programação",
     "JavaScript",
     "tecnologia",
+    "desenvolvedor React",
+    "React developer",
+    "desenvolvedor Next.js",
+    "desenvolvedor Next",
+    "Next.js developer",
   ],
 
+  authors: [{ name: "Luciano Mathias", url: "https://lucianomathiasportfolio.vercel.app" }],
   icons: {
-    icon: '/favicon.ico',
-  }
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  viewport: "width=device-width, initial-scale=1.0",
+  openGraph: {
+    title: "Luciano Mathias - Desenvolvedor Front-End",
+    description:
+      "Explore os projetos de Luciano Mathias, desenvolvedor focado em entregar soluções tecnológicas usando React, Next.js e Firebase.",
+    url: "https://lucianomathiasportfolio.vercel.app",
+    siteName: "Luciano Mathias",
+    images: [
+      {
+        url: "https://lucianomathiasportfolio.vercel.app/fotoPerfil.png",
+        width: 1200,
+        height: 630,
+        alt: "Capa do portfólio de Luciano Mathias",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://lucianomathiasportfolio.vercel.app",
+  },
+  
 };
 
 export default function RootLayout({
