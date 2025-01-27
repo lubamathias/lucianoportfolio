@@ -29,6 +29,9 @@
 
     border: 1px solid $color-primary;
     border-radius: 15px;
+    input {
+        color: black;
+    }
 }
 
 
@@ -151,7 +154,7 @@
 
     justify-content: space-around;
     
-    z-index: 1000; /* Certifique-se de que ele esteja à frente de outros elementos */
+    z-index: 1000;
     animation: fadeIn 2s ease-in-out;
 }
 
@@ -166,22 +169,31 @@
     width: 80px;
     height: 80px;
 
-    background-color: transparent; /* Verde padrão do WhatsApp */
-    color: $color-primary; /*Verde padrão do Whats caso preferir: #25D366;*/
+    background-color: transparent; 
+    color: $color-primary; 
     
     cursor: pointer;
-    border: none; /* Remove bordas adicionais */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Pequeno efeito de sombra */
-    transition: transform 0.4s ease-in-out; /* Suaviza a animação */
+    border: none; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.4s ease-in-out; 
 
     &:hover {
-        transform: scale(1.3); /* Pequeno efeito de crescimento no hover */
+        transform: scale(1.3); 
 
     }
 }
 
+.whatsIcon2 {
+    color: #25D366;
+}
+
 
 @media (max-width: 678px) {
+
+    .form {
+        height: auto;
+        margin-bottom: 20px;
+    }
     .formContainer {
         flex-direction: column;
     }

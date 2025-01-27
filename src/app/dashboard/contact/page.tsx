@@ -86,7 +86,7 @@ export default function ContactForm() {
                         rel="noopener noreferrer"
                     >
                         <button className={style.whatsButton}>
-                            <FaWhatsapp className={style.whatsIcon} />
+                            <FaWhatsapp className={`${style.whatsIcon} ${style.whatsIcon2}`} />
                         </button>
                     </Link>
                     <Link href={"https://github.com/lubamathias"} target="_blank" rel="noopener noreferrer">

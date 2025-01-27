@@ -60,6 +60,7 @@
     height: 100vh;
     @include center-flex;
     flex-direction: column;
+    border: 1px solid blue;
 
     h1 {
         width: 100%;
@@ -376,6 +377,7 @@
     height: auto;
     color: white;
 
+    border: 1px solid red;
     border-radius: 50%;
 
     animation: yellowLight linear both;
