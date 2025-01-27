@@ -10,7 +10,7 @@ import { RiPlayCircleFill } from "react-icons/ri";
 
 /* Images */
 import dailyGamesImg from "/public/images/dailyGames.jpeg";
-import gitHubRepositoriesImg from '/public/images/githubRepositories.jpeg';
+import gitHubRepositoriesImg from '/public/images/gitHubRepositories.jpeg';
 import tasksProjectImg from '/public/images/tasksProject.jpeg';
 import cubeImg from '/public/images/cubeImg.png';
 import skillsLogosImg from '/public/images/skillsLogos.jpeg';
