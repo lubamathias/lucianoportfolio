@@ -28,6 +28,7 @@
     overflow: hidden;
 
     border: 1px solid $color-primary;
+    background: #0086ab13;
     border-radius: 15px;
     input {
         color: black;
@@ -195,17 +196,23 @@
 @media (max-width: 678px) {
 
     .form {
+        width: 80%;
         height: auto;
         margin-bottom: 20px;
     }
     .formContainer {
         flex-direction: column;
+
+        .label {
+            width: 100%;
+
+            label {
+                width: 80%;
+            }
+        }
     }
 
 
-    .label {
-        width: 100%;
-    }
 
     .message {
         width: 80%;

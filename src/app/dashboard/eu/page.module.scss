@@ -465,16 +465,11 @@
     }
   }
 
-@keyframes iconAnimation {
-    to {
-        transform: rotateZ(360deg);
-    }
-}
-
-@keyframes showBg {
-    0% {
-        opacity: 0;
-    }
+  
+  @keyframes showBg {
+      0% {
+          opacity: 0;
+        }
     50% {
         opacity: 1;
     }
@@ -485,14 +480,14 @@
 
 @keyframes writeAnimation {
     from {
-      clip-path: inset(0 100% 0 0); /* Começa ocultando a imagem */
-
+        clip-path: inset(0 100% 0 0);
+        
     }
     to {
-      clip-path: inset(0 0 0 0); /* Revela a imagem completamente */
-
+        clip-path: inset(0 0 0 0);
+        
     }
-
+    
 }
 
 @keyframes yellowLight {
@@ -510,9 +505,43 @@
     }
     100% {
         color: gold;
-
+        
     }
 }
+@keyframes  icons1{
+    to {
+        transform: rotateX(360deg);
+    }
+}
+@keyframes icons2 {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes icons3 {
+    to {
+        transform: rotate3d(1, 1, 1, 360deg);
+    }
+}
+
+@keyframes icons4 {
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes icons5 {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+    
+}
+
 
 
 @media (max-width: 678px) {
@@ -599,6 +628,22 @@
 
     .lightIcon {
         animation: yellowLightForMobile 3s ease-out infinite;
+    }
+
+    .icons1 {
+        animation: icons1 3s ease infinite;
+    }
+    .icons2 {
+        animation: icons2 3s ease infinite;
+    }
+    .icons3 {
+        animation: icons3 3s ease infinite;
+    }
+    .icons4 {
+        animation: icons4 3s ease infinite;
+    }
+    .icons5 {
+        animation: icons5 3s ease infinite;
     }
 
 

@@ -6,6 +6,7 @@
     width: 100%;
     height: 100vh;
     @include center-flex;
+    margin-top: -3rem;
 }
 
 .bgVideo {
@@ -92,7 +93,7 @@
 }
 
 
-@media screen and (max-width: 580px){
+@media screen and (max-width: 678px){
     .container {
       flex-direction: column;
       max-height: 80%;
@@ -107,7 +108,7 @@
     }
     .cardsContainer {
         width: 100%;
-        height: 100%;
+        height: auto;
         flex-direction: row;
         justify-content: space-around;
 
