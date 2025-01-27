@@ -1,0 +1,577 @@
+@import "../../scss/scss.scss";
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;
+    height: 100vh;
+
+    overflow-y: scroll;
+    
+    scroll-timeline-name: --textTimeline;
+
+    overflow-x: hidden;
+    
+    
+}    
+
+.video {
+    z-index: -1;
+    position: absolute;
+    opacity: 0.2;
+    
+}    
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    
+    z-index: 1;
+    
+}    
+
+.fotoPerfil {
+    max-width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+    opacity: 0;
+    animation: fadeIn 1s;
+    animation-delay: 0.5;
+    animation-fill-mode: forwards;
+
+    background: #0086ab1e;
+
+}
+
+
+
+
+
+.section1 {
+    width: 100%;
+    height: 100vh;
+    @include center-flex;
+    flex-direction: column;
+
+    h1 {
+        width: 100%;
+        @include center-flex;
+        font-family: "Exo", sans-serif;
+        font-size: xx-large;
+        font-style: italic;
+        font-weight: 100;
+        color: $color-primary;
+        text-shadow: 0.2px 0.2px rgba(255, 255, 255, 0.507);
+
+        animation: writeAnimation linear both;
+        animation-timeline: view();
+        animation-range: cover 0% cover 50%;
+
+    }
+
+}    
+.apresetation {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    
+    
+    
+    
+    
+    .text {
+        width: 100%;
+        height: 50%;
+        @include center-flex;
+        opacity: 0;
+        
+        animation: fadeIn 2s;
+        animation-delay: 0.7s;
+        animation-fill-mode: forwards;
+        
+        
+        
+    }
+    
+    h2 {
+        width: 100%;
+        font-family: "Exo", sans-serif;
+        font-style: italic;
+        font-weight: 100;
+        color: $color-primary;
+        left: 100%;
+        text-align: justify;
+        text-shadow: 0.2px 0.2px rgba(255, 255, 255, 0.507);
+        
+        
+        
+    }
+}
+
+.section2 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+
+
+
+    .textContainer{
+        width: 60%;
+
+        animation: rightScroll linear both;
+        animation-timeline: view();
+        animation-range: cover 0% cover 50%;
+
+    }    
+    h2 {
+        width: 90%;
+        font-family: "Exo", sans-serif;
+        font-style: italic;
+        font-weight: 100;
+        color: $color-primary;
+        text-align: center;
+        text-shadow: 0.2px 0.2px rgba(255, 255, 255, 0.507);
+    }    
+    p {
+        width: 90%;
+        margin-top: 1rem;
+        text-indent: 30px;
+        font-family: 'Exo', sans-serif;
+        font-weight: 100;
+        font-size: large;
+        line-height: 30px;
+        text-align: justify;
+
+    }    
+}    
+
+.section3 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    background-color: rgba(240, 248, 255, 0.027);
+    border-radius: 10px;
+ 
+
+
+    .textContainer{
+        width: 60%;
+
+        animation: rightScroll2 linear both;
+        animation-timeline: view();
+        animation-range: cover 0% cover 50%;
+
+    }    
+    h2 {
+        width: 90%;
+        font-family: "Exo", sans-serif;
+        font-style: italic;
+        font-weight: 100;
+        color: $color-primary;
+        text-align: center;
+        text-shadow: 0.2px 0.2px rgba(255, 255, 255, 0.507);
+    }    
+    p {
+        text-align: justify;
+        width: 90%;
+        margin-top: 1rem;
+        text-indent: 30px;
+        font-family: "Exo", sans-serif;
+        font-weight: 100;
+        font-size: large;
+        line-height: 30px;
+
+    }    
+}    
+
+.section4 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+
+    background-color: rgba(240, 248, 255, 0.027);
+    border-radius: 10px;
+ 
+
+    .conteiner1{
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+
+  
+        h2 {
+            width: 90%;
+            text-align: end;
+            font-family: "Exo", sans-serif;
+            font-style: italic;
+            font-weight: 100;
+            color: $color-primary;
+            text-shadow: 0.2px 0.2px rgba(255, 255, 255, 0.507);
+            padding-right: 15%;
+        }    
+        ul {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 1rem;
+            text-indent: 20px;
+            font-family: 'Exo', sans-serif;
+            font-weight: 100;
+            font-size: large;
+            line-height: 30px;
+
+            list-style: none;
+
+
+
+            li {
+                margin: 5px;
+                padding: 5px;
+                border: 1px solid #0086ab91;
+                border-radius: 15px;
+
+                animation: blueOff linear both;
+                animation-timeline: view();
+                animation-range: cover 0% cover 32%;
+
+                strong {
+                    font-weight: 300;
+                }
+            }
+    
+        }    
+    }    
+
+    .conteiner2{
+        width: 30%;
+        height: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: rightScroll linear both;
+        animation-timeline: view();
+        animation-range: cover 0% cover 50%;
+
+        ul {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: row;
+            margin-top: 1rem;
+            text-indent: 20px;
+            font-family: 'Exo', sans-serif;
+            font-weight: 100;
+            font-size: x-large;
+            line-height: 30px;
+
+            flex-wrap: wrap;
+
+            list-style: none;
+
+
+
+            li {
+                margin: 5px;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                
+
+
+                flex: 0 0 35%;
+
+                .icons {
+                    width: 40px;
+                    height: auto;
+                    color: $color-primary;
+
+                }
+                .iconAnimated {
+                    animation: iconAnimation 3s linear infinite;
+                }
+
+            }
+
+    
+        }    
+
+
+    }
+}    
+
+
+.techHeartContainer {
+    @include center-flex;
+    height: 100%;
+    width: 30%;
+    animation: rightScroll2 linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 50%;
+
+
+}    
+
+.techHeartImg {
+    width: 300px;
+    height: auto;
+    animation: heartBeat 1s linear infinite;
+}    
+
+.arrowImgContainer {
+    @include center-flex;
+    width: 30%;
+
+
+}
+.arrowImg {
+    width: 300px;
+    height: auto;
+    animation: transitionTree 3s linear infinite;
+
+
+}
+
+.transitionImgContainer {
+    @include center-flex;
+    width: 30%;
+}
+
+.transitionImg {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    animation: transitionTree 7s ease-in-out infinite;
+}
+
+
+.lightIcon {
+    width: 80px;
+    height: auto;
+    color: white;
+
+    border-radius: 50%;
+
+    animation: yellowLight linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 50%;
+}
+
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+    
+    
+}
+
+@keyframes blueOff {
+    from {
+        background: #54c4e4;
+    } 
+
+    to {
+        background: none;
+    }
+}
+
+@keyframes rightScroll {
+    from {
+        opacity: 0;
+        translate: 100vw 0;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+@keyframes rightScroll2 {
+    from {
+        opacity: 0;
+        translate: -100vw 0;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+
+@keyframes heartBeat {
+    to {
+        width: 330px;
+    }
+}
+
+@keyframes transitionTree {
+      0% {
+        clip-path: inset(100% 0 0 0);
+        opacity: 0;
+      }
+      50% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+@keyframes arrowGrow {
+    0% {
+      clip-path: inset(100% 100% 0 0);
+      opacity: 0;
+    }
+    50% {
+      clip-path: inset(0 0 0 0);
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+@keyframes iconAnimation {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes showBg {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes writeAnimation {
+    from {
+      clip-path: inset(0 100% 0 0); /* Começa ocultando a imagem */
+
+    }
+    to {
+      clip-path: inset(0 0 0 0); /* Revela a imagem completamente */
+
+    }
+
+}
+
+@keyframes yellowLight {
+    0% {
+        color: white;
+    }
+    100% {
+        color: gold;
+        box-shadow: 0 -50px 15px rgba(255, 255, 0, 0.336);
+    }
+}
+
+
+@media (max-width: 678px) {
+    .apresetation {
+        width: 100%;
+    }
+    .section4 {
+        flex-direction: column;
+
+        .conteiner1 {
+            width: 100%;
+
+            .ul {
+                width: 100%;
+
+                .li {
+                    width: 100%;
+                }
+            }
+            
+        }
+        
+        .conteiner2 {
+            width: 100%;
+
+            animation-range: cover 0% cover 22%;
+
+            .ul {
+                width: 100%;
+            }
+        }
+    }
+
+    .section2 {
+        flex-direction: column;
+        justify-content: center;
+
+        .textContainer {
+            width: 100%;
+
+            animation-range: cover 0% cover 35%;
+        }
+    }
+
+    .techHeartContainer {
+        height: 40%;
+        width: 100%;
+    }
+    .section3 {
+        flex-direction: column-reverse;
+
+        .textContainer {
+            width: 100%;
+        }
+    }
+    .pictureMe {
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+    }
+
+    .transitionImgContainer {
+        width: 90%;
+    }
+
+    .section1 {
+        h1 {
+            text-align: center;
+        }
+    }
+
+
+}
+

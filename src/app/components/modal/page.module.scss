@@ -1,0 +1,184 @@
+@import "./../../scss/scss.scss";
+
+.container {
+    position: fixed;
+    width: 350px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: baseline;
+    justify-content: baseline;
+    flex-direction: column;
+    background-color: #0086abe7;
+    object-fit: contain;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    font-family: 'Exo';
+
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.title {
+    margin: 15px;
+}
+
+.description {
+    width: 90%;
+    text-align: start;
+    text-indent: 25px;
+    margin-bottom: 10px;
+
+}
+
+.containerSkillsSpecifics {
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    flex-direction: row;
+}
+
+.skills {
+    width: 50%;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    flex-direction: column;
+    margin: 3px;
+}
+.skills h4{
+    font-size:x-small;
+    font-weight: 400;
+    text-decoration: underline;
+    border-radius: 5px;
+    margin-bottom: 2px;
+}
+
+.skills ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.skillList {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 2px;
+
+}
+
+.skillName {
+    width: 70%;
+    display: flex;
+
+    list-style-type: none;
+    text-align: left;
+
+    animation: fadeIn 2s ease-in-out;
+}
+
+.skillIcon {
+    list-style-type: none;
+    animation: fadeIn 1s ease-in-out;
+    margin-right: 5px;
+}
+
+.specifiesName {
+    width: 100%;
+    display: flex;
+    font-size: small;
+
+    list-style-type: none;
+    text-align: left;
+
+    animation: fadeIn 2s ease-in-out;
+}
+.specifiesIcon {
+    list-style-type: none;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.checkIcon {
+    width: 12px;
+    margin-right: 5px;
+}
+
+.closeButton {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    bottom: 15px;
+    left: 30%;
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+
+
+
+}
+
+
+
+.closeButtonIcon {
+    width: 30px;
+    height: 30px;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    color: $color-primary;
+    transition: all 0.4s;
+}
+.closeButtonIcon:hover {
+    background-color: $color-primary;
+    color: whitesmoke;
+
+}
+
+
+.siteButton {
+    border: none;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    bottom: 25px;
+    right: 30%;
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+.siteIcon {
+    width: 45px;
+    height: 45px;
+    background-color: #4CBB17;
+    border-radius: 50%;
+    color: whitesmoke;
+    transition: all 0.4s;
+}
+
+.siteIcon:hover {
+    color: #4CBB17;
+    background-color: whitesmoke;
+}

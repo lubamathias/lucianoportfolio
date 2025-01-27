@@ -1,0 +1,27 @@
+@import "/src/app/scss/scss.scss";
+
+
+.link {
+    @include center-flex;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    top: 20px;
+    left: 50px;
+    
+    z-index: 10;
+
+    background-color: $color-primary;
+    border: 2px solid $color-primary;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+.link:hover {
+    background-color: $color-secondary;
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+}

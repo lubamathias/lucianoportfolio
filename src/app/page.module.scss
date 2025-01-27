@@ -1,0 +1,142 @@
+@import "./scss/scss.scss";
+
+.main {
+  @include center-flex;
+  height: 100vh;
+
+  animation-duration: 3s;
+  animation-name: slidein2;
+  
+}
+
+
+.container {
+  @include center-flex;
+  max-height: 580px;
+  
+}
+
+
+.containerText {
+  width: 100%;
+  height: 100vh;
+  @include center-flex;
+  flex-direction: column;
+
+
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+
+.img {
+  max-width: 300px;
+  @include center-flex;
+  border-radius: 50%;
+  background-color: #0086ab1e;
+  padding: 2px;
+  margin-right: 70px;
+
+
+}
+
+
+.fotoPerfil {
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+
+.title h1 {
+  color: $color-primary;
+  font-family: "Exo", sans-serif;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+
+.title h3 {
+  width: 100%;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  color: $color-tertiary;
+  font-weight: 100;
+
+  strong {
+    font-weight: 300;
+    font-style: italic;
+  }
+
+}
+
+
+.button {
+  border: 2px  solid $color-primary;
+  background: $color-primary;
+  margin-top: 30px;
+  border-radius: 100%;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s;
+}
+
+.button:hover {
+  background: $color-secondary;
+}
+.arrow {
+  color: $color-tertiary;
+}
+
+
+@keyframes slidein {
+  from {
+    padding-bottom: 30%;
+    color: black;
+    
+    }
+    
+    to {
+      padding-bottom: 0%;
+  
+    }
+  }
+
+  @keyframes slidein2 {
+    from {
+      background: white;
+  
+    }
+  
+    to {
+      padding-bottom: 0%;
+      
+    }
+  }
+
+  @media screen and (max-width: 580px){
+    .container {
+      justify-content: center;
+      flex-direction: column;
+    }
+    .img {
+      margin-bottom: -100px;
+      margin-right: 0;
+    }
+    @keyframes slidein {
+      from {
+        padding-top: 60%;
+        color: black;
+        
+      }
+      
+      to {
+        padding-bottom: 0%;
+        
+      }
+    }
+  }

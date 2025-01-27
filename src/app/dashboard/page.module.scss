@@ -1,0 +1,135 @@
+@import "./../scss/scss.scss";
+
+
+
+.main {
+    width: 100%;
+    height: 100vh;
+    @include center-flex;
+}
+
+.bgVideo {
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.container {
+    @include center-flex;
+    width: 60%;
+    position: absolute;
+    justify-content: space-around;
+
+
+}
+
+
+.cardsContainer {
+    height: 430px;
+    @include center-flex;
+    flex-direction: column;
+ 
+    padding: 15px;
+    border-radius: 50%;
+    transition: all 1s;
+    margin: 7px;
+
+
+    animation: fadeIn 3.5s ease-in-out;
+
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+.cardsLink {
+    height: 430px;
+ 
+    border-radius: 50%;
+    margin: -7px;
+}
+
+
+.cardsContainer h3 {
+    font-family: "Exo", serif;
+    font-size:medium;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style:normal;
+    padding-top: 20px;
+}
+
+
+.cardsContainer:hover {
+    background: rgba(0, 153, 255, 0.1);
+
+    transition: transform 2s;
+}
+.projectsImg {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.video {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+@media screen and (max-width: 580px){
+    .container {
+      flex-direction: column;
+      max-height: 80%;
+      width: 80%;
+    }
+
+    .cardsLink {
+        max-height: 200px;
+        width: 100%;
+        @include center-flex;
+     
+    }
+    .cardsContainer {
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+
+    }
+
+    .cardsContainer h3 {
+        width: 70px;
+        margin-top: 0;
+        font-size:large;
+
+    }
+
+    .projectsImg {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .video {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+}
