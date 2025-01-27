@@ -7,6 +7,7 @@ export function CubeVideo(){
           autoPlay
           loop
           muted
+          playsInline
           className={styles.video}
           />
     )

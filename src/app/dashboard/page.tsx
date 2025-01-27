@@ -16,6 +16,7 @@ export default function Dashboard() {
             autoPlay
             loop
             muted
+            playsInline
             className={style.bgVideo}
             />
             <div className={style.container}>
@@ -39,6 +40,7 @@ export default function Dashboard() {
                         autoPlay
                         loop
                         muted
+                        playsInline
                         className={style.video}
                         />
                         <h3>O CUBO</h3>

@@ -223,7 +223,7 @@
   
         h2 {
             width: 90%;
-            text-align: end;
+            text-align: center;
             font-family: "Exo", sans-serif;
             font-style: italic;
             font-weight: 100;
@@ -516,8 +516,13 @@
         .conteiner1 {
             width: 100%;
 
+            h2 {
+                width: 100%;
+            }
+
             .ul {
                 width: 100%;
+                margin-top: 5px;
 
                 .li {
                     width: 100%;
@@ -531,8 +536,10 @@
 
             animation-range: cover 0% cover 22%;
 
-            .ul {
+
+            ul {
                 width: 100%;
+                height: auto;
             }
         }
     }

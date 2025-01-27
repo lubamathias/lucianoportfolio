@@ -24,6 +24,7 @@ export default function Eu(){
             autoPlay
             muted
             loop
+            playsInline
             className={style.video}
             />
             <main className={style.main}>
