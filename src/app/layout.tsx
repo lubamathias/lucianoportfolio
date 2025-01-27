@@ -1,7 +1,7 @@
 
 import type { Metadata } from "next";
 import "./globals.scss";
-import {Exo, Inter, Amatic_SC, Cedarville_Cursive} from 'next/font/google';
+import {Exo, Inter, Amatic_SC} from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -40,6 +40,7 @@ export const metadata: Metadata = {
     "JavaScript",
     "tecnologia",
   ],
+
   icons: {
     icon: '/favicon.ico',
   }
@@ -51,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" >
+    <html lang="pt-BR" className={`${exo.className} ${inter.className} ${amaticSc.className}`} >
         <head>
         {/* Fallback manual para o favicon */}
         <link rel="icon" href="/favicon.ico" />
