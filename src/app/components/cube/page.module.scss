@@ -16,9 +16,27 @@
 
   padding: 30px;
 
-  background: #0086abc2;
-  border-radius: 10px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.322) 0%, rgba(192, 192, 192, 0.171) 25%, rgba(56, 102, 109, 0.699) 50%, rgba(218, 208, 223, 0.212) 75%);
+  background-size: 300%;
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.7);
 
+  animation: moving 5s ease infinite;
+
+
+}
+
+@keyframes moving {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .button {
@@ -80,7 +98,7 @@
   width: 100%;
   height: 100%;
 
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.7);
 
   display: flex;
   align-items: center;
@@ -161,6 +179,8 @@
   text-align: center;
   transform: translateZ(150px);
   font-family: "Amatic SC", serif;
+  color: white;
+  text-shadow: 3px 3px black;
   font-optical-sizing: auto;
   font-weight: 100;
   font-style: normal;
@@ -189,6 +209,7 @@
 
 .bottom {
   transform: rotateX(-90deg) translateZ(150px);
+
 }
 .projectsImages {
   width: 100%;
@@ -196,8 +217,9 @@
   object-fit: cover;
   position: absolute;
   opacity: 0;
-
   transition: 1s;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 .projectsImages:hover {
 

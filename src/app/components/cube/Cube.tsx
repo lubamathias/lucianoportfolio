@@ -3,7 +3,6 @@
 import { useRef, useState} from "react";
 import styles from "./page.module.scss";
 import Image from "next/image";
-import { CubeVideo } from "../cubeVideo/CubeVideo";
 import Modal from "../modal";
 import {projects, ProjectProps} from '@/app/projects/data'
 import { RiPlayCircleFill } from "react-icons/ri";
@@ -14,6 +13,7 @@ import gitHubRepositoriesImg from '/public/images/gitHubRepositories.jpeg';
 import tasksProjectImg from '/public/images/tasksProject.jpeg';
 import cubeImg from '/public/images/cubeImg.png';
 import skillsLogosImg from '/public/images/skillsLogos.jpeg';
+import { Background } from "../background";
 
 
 
@@ -162,11 +162,11 @@ const handleModalClose = () => {
             <br /> 
             Este não é um cubo comum, é a porta para o meu mundo.
           </p>
-          <CubeVideo/>
+          <Background/> 
 
           </div>
           <div className={`${styles.face} ${styles.back}`}>
-          <CubeVideo/>
+          <Background/> 
           <Image
             alt='Skills Logo Img'
             src={skillsLogosImg}
@@ -185,7 +185,7 @@ const handleModalClose = () => {
                 >
                   <RiPlayCircleFill className={styles.iconButton}/>
                 </button>
-              <CubeVideo/>
+              <Background/> 
               <Image
                 alt="Cube Img"
                 src={cubeImg}
@@ -204,7 +204,7 @@ const handleModalClose = () => {
                 >
                   <RiPlayCircleFill className={styles.iconButton}/>
                 </button>
-              <CubeVideo/>
+              <Background/> 
               <Image
                 alt="Tasks Project Img"
                 src={tasksProjectImg}
@@ -223,7 +223,7 @@ const handleModalClose = () => {
                 >
                   <RiPlayCircleFill className={styles.iconButton}/>
                 </button>
-              <CubeVideo/>
+              <Background/> 
               <Image
                 alt="Github Repositories Img"
                 src={gitHubRepositoriesImg}
@@ -242,7 +242,7 @@ const handleModalClose = () => {
                 >
                   <RiPlayCircleFill className={styles.iconButton}/>
                 </button>
-              <CubeVideo/>
+              <Background/>              
               <Image
                 alt="Project Daily Games Img"
                 src={dailyGamesImg}

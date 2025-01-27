@@ -518,15 +518,13 @@
 
             h2 {
                 width: 100%;
+                padding-right: 0;
             }
 
-            .ul {
+            ul {
                 width: 100%;
                 margin-top: 5px;
 
-                .li {
-                    width: 100%;
-                }
             }
             
         }
@@ -540,6 +538,10 @@
             ul {
                 width: 100%;
                 height: auto;
+
+                li {
+                    font-size: large;
+                }
             }
         }
     }
@@ -582,6 +584,10 @@
         h1 {
             text-align: center;
         }
+    }
+
+    .lightIcon {
+        animation: yellowLight 5s ease-out infinite;
     }
 
 
