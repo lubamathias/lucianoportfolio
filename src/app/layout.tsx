@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     siteName: "Luciano Mathias",
     images: [
       {
-        url: "https://lucianomathiasportfolio.vercel.app/fotoPerfil.png",
+        url: "https://lucianomathiasportfolio.vercel.app/fotoPerfilSeo.jpg",
         width: 1200,
         height: 630,
         alt: "Capa do portfólio de Luciano Mathias",

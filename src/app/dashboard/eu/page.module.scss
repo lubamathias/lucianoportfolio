@@ -60,7 +60,7 @@
     height: 100vh;
     @include center-flex;
     flex-direction: column;
-    border: 1px solid blue;
+
 
     h1 {
         width: 100%;
@@ -377,7 +377,6 @@
     height: auto;
     color: white;
 
-    border: 1px solid red;
     border-radius: 50%;
 
     animation: yellowLight linear both;
@@ -505,6 +504,15 @@
         box-shadow: 0 -50px 15px rgba(255, 255, 0, 0.336);
     }
 }
+@keyframes yellowLightForMobile {
+    0% {
+        color: white;
+    }
+    100% {
+        color: gold;
+
+    }
+}
 
 
 @media (max-width: 678px) {
@@ -543,6 +551,7 @@
 
                 li {
                     font-size: large;
+                    padding-bottom: 20px;
                 }
             }
         }
@@ -568,7 +577,7 @@
         border: 1px solid rgba(240, 248, 255, 0.274);
 
         .textContainer {
-            width: 100%;
+            width: 90%;
             animation-range: cover 0% cover 25%;
         }
     }
@@ -589,7 +598,7 @@
     }
 
     .lightIcon {
-        animation: yellowLight 5s ease-out infinite;
+        animation: yellowLightForMobile 5s ease-out infinite;
     }
 
 
