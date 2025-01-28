@@ -5,18 +5,16 @@ import {Exo, Inter, Amatic_SC} from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-inter'
 })
 
 const exo = Exo({
   subsets: ['latin'],
-  variable: '--font-exo'
+  weight: ['200', '500']
 })
 
 const amaticSc = Amatic_SC ({
   subsets: ['latin'],
-  weight: '400',
-  variable: '--font-amaticSc'
+  weight: ['400', '700'],
 })
 
 
@@ -85,7 +83,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${exo.className} ${inter.className} ${amaticSc.className}`}>
         <head>
         {/* Fallback manual para o favicon */}
         <link rel="icon" href="/favicon.ico" />

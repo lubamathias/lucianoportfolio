@@ -67,7 +67,7 @@ export default function Eu(){
                     <div className={style.conteiner2}>
                         <ul>
                             <li>
-                                <RiNextjsFill className={`${style.icons} ${style.icons1}`}/>
+                                <RiNextjsFill className={`${style.icons} ${style.icons4}`}/>
                                 Next.js
                             </li>
                             <li>
@@ -79,7 +79,7 @@ export default function Eu(){
                                 TypeScript
                             </li>
                             <li>
-                                <RiNodejsFill className={`${style.icons} ${style.icons4}`}/>
+                                <RiNodejsFill className={`${style.icons} ${style.icons1}`}/>
                                 Node.js
                             </li>
                             <li>
@@ -87,7 +87,7 @@ export default function Eu(){
                                 APIs
                             </li>
                             <li>
-                                <SiSass className={`${style.icons} ${style.icons2}`}/>
+                                <SiSass className={`${style.icons} ${style.icons4}`}/>
                                 CSS/SASS
                             </li>
                         </ul>

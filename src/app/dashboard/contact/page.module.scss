@@ -6,6 +6,7 @@
     @include center-flex;
     flex-direction: column;
     animation: fadeIn 2s ease-in-out;
+    justify-content: baseline;
 }
 
 
@@ -65,8 +66,8 @@
 }
 
 .titleContainer p {
-    font-family: "Inter";
-    font-weight: 100;
+    font-family: "Exo";
+    font-weight: 200;
 }
 
 
@@ -95,7 +96,7 @@
 
 
     font-family: 'Exo';
-    font-weight: 100;
+    font-weight: 200;
     color: $color-tertiary;
 }
 
@@ -122,8 +123,8 @@
 }
 
 .textArea::placeholder {
-    font-family: 'Inter';
-    font-weight: 400;
+    font-family: 'Exo';
+    font-weight: 200;
     font-style: italic;
     color: grey;
 }
@@ -194,9 +195,11 @@
 
 
 @media (max-width: 678px) {
-
+    .container {
+        margin-bottom: 5rem;
+    }
     .form {
-        width: 80%;
+        width: 90%;
         height: auto;
         margin-bottom: 20px;
     }
@@ -208,6 +211,7 @@
 
             label {
                 width: 80%;
+                margin-bottom: 10px;
             }
         }
     }
@@ -221,4 +225,5 @@
     .whatsContainer {
         width: 90%;
     }
+
 }

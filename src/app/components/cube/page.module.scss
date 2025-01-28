@@ -103,7 +103,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
   user-select:none;
 } 
 
@@ -182,10 +181,11 @@
   color: white;
   text-shadow: 3px 3px black;
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
 
   strong {
+    font-weight: 700;
     font-size: x-large;
   }
 }

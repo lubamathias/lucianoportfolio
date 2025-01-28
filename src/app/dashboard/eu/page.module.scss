@@ -68,8 +68,8 @@
         font-family: "Exo", sans-serif;
         font-size: xx-large;
         font-style: italic;
-        font-weight: 100;
-        color: $color-primary;
+        font-weight: 200;
+        color: white;
         text-shadow: 0.2px 0.2px rgba(255, 255, 255, 0.507);
 
         animation: writeAnimation linear both;
@@ -108,8 +108,8 @@
         width: 100%;
         font-family: "Exo", sans-serif;
         font-style: italic;
-        font-weight: 100;
-        color: $color-primary;
+        font-weight: 200;
+        color: white;
         left: 100%;
         text-align: justify;
         text-shadow: 0.2px 0.2px rgba(255, 255, 255, 0.507);
@@ -141,7 +141,7 @@
         width: 90%;
         font-family: "Exo", sans-serif;
         font-style: italic;
-        font-weight: 100;
+        font-weight: 200;
         color: $color-primary;
         text-align: center;
         text-shadow: 0.2px 0.2px rgba(255, 255, 255, 0.507);
@@ -149,9 +149,8 @@
     p {
         width: 90%;
         margin-top: 1rem;
-        text-indent: 30px;
         font-family: 'Exo', sans-serif;
-        font-weight: 100;
+        font-weight: 200;
         font-size: large;
         line-height: 30px;
         text-align: justify;
@@ -183,7 +182,7 @@
         width: 90%;
         font-family: "Exo", sans-serif;
         font-style: italic;
-        font-weight: 100;
+        font-weight: 200;
         color: $color-primary;
         text-align: center;
         text-shadow: 0.2px 0.2px rgba(255, 255, 255, 0.507);
@@ -192,9 +191,8 @@
         text-align: justify;
         width: 90%;
         margin-top: 1rem;
-        text-indent: 30px;
         font-family: "Exo", sans-serif;
-        font-weight: 100;
+        font-weight: 200;
         font-size: large;
         line-height: 30px;
 
@@ -227,10 +225,9 @@
             text-align: center;
             font-family: "Exo", sans-serif;
             font-style: italic;
-            font-weight: 100;
+            font-weight: 200;
             color: $color-primary;
             text-shadow: 0.2px 0.2px rgba(255, 255, 255, 0.507);
-            padding-right: 15%;
         }    
         ul {
             width: 80%;
@@ -239,9 +236,8 @@
             justify-content: center;
             flex-direction: column;
             margin-top: 1rem;
-            text-indent: 20px;
             font-family: 'Exo', sans-serif;
-            font-weight: 100;
+            font-weight: 200;
             font-size: large;
             line-height: 30px;
 
@@ -260,7 +256,7 @@
                 animation-range: cover 0% cover 32%;
 
                 strong {
-                    font-weight: 300;
+                    font-weight: 500;
                 }
             }
     
@@ -285,9 +281,8 @@
             justify-content: space-around;
             flex-direction: row;
             margin-top: 1rem;
-            text-indent: 20px;
             font-family: 'Exo', sans-serif;
-            font-weight: 100;
+            font-weight: 200;
             font-size: x-large;
             line-height: 30px;
 
@@ -365,7 +360,7 @@
 }
 
 .transitionImg {
-    width: 100%;
+    width: auto;
     height: auto;
     border-radius: 50%;
     animation: transitionTree 7s ease-in-out infinite;
@@ -439,11 +434,11 @@
 
 @keyframes transitionTree {
       0% {
-        clip-path: inset(100% 0 0 0);
+        clip-path: circle(0);;
         opacity: 0;
       }
       50% {
-        clip-path: inset(0 0 0 0);
+        clip-path: circle(100%);;
         opacity: 1;
       }
       100% {
@@ -533,11 +528,10 @@
 
 @keyframes icons5 {
     from {
-        clip-path: inset(0 100% 0 0);
+        opacity: 0;
     }
-
     to {
-        clip-path: inset(0 0 0 0);
+        opacity: 1;
     }
     
 }
@@ -604,8 +598,10 @@
     .section3 {
         flex-direction: column;
         border: 1px solid rgba(240, 248, 255, 0.274);
+        justify-content: center;
 
         .textContainer {
+            margin-top: 2rem;
             width: 90%;
             animation-range: cover 0% cover 25%;
         }
@@ -617,7 +613,11 @@
     }
 
     .transitionImgContainer {
-        width: 90%;
+        height: 40%;
+        width: 100%;
+    }
+    .transitionImg {
+        height: 100%;
     }
 
     .section1 {
@@ -643,7 +643,7 @@
         animation: icons4 3s ease infinite;
     }
     .icons5 {
-        animation: icons5 3s ease infinite;
+        animation: icons5 3s ease-in infinite;
     }
 
 
