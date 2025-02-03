@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import {Exo, Inter, Amatic_SC} from 'next/font/google';
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -22,6 +23,9 @@ const amaticSc = Amatic_SC ({
 export const metadata: Metadata = {
   title: "Luciano Mathias - Desenvolvedor Front-End",
   description: "Desenvolvedor especializado em React, Next.js e tecnologias modernas. Transformando ideias em soluções eficientes e tecnológicas.",
+  other: {
+    "google-site-verification": "TANxqOD-DWUTf1eQh5Y3moVO3vSuwhARLaww5_1vjFA",
+  },
   keywords: [
     "desenvolvedor front-end",
     "desenvolvedor",
@@ -84,7 +88,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${exo.className} ${inter.className} ${amaticSc.className}`}>
-        <head>
+      <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XY4HGQZF7C"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XY4HGQZF7C');
+          `}
+        </Script>
+      <head>
         {/* Fallback manual para o favicon */}
         <link rel="icon" href="/favicon.ico" />
       </head>
