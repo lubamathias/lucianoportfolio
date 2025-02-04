@@ -309,8 +309,20 @@
                     color: $color-primary;
 
                 }
-                .iconAnimated {
-                    animation: iconAnimation 3s linear infinite;
+                .icons1 {
+                    animation: icons1 3s ease infinite;
+                }
+                .icons2 {
+                    animation: icons2 3s ease infinite;
+                }
+                .icons3 {
+                    animation: icons3 3s ease infinite;
+                }
+                .icons4 {
+                    animation: icons4 3s ease infinite;
+                }
+                .icons5 {
+                    animation: icons5 3s ease-in infinite;
                 }
 
             }
@@ -628,22 +640,6 @@
 
     .lightIcon {
         animation: yellowLightForMobile 3s ease-out infinite;
-    }
-
-    .icons1 {
-        animation: icons1 3s ease infinite;
-    }
-    .icons2 {
-        animation: icons2 3s ease infinite;
-    }
-    .icons3 {
-        animation: icons3 3s ease infinite;
-    }
-    .icons4 {
-        animation: icons4 3s ease infinite;
-    }
-    .icons5 {
-        animation: icons5 3s ease-in infinite;
     }
 
 
