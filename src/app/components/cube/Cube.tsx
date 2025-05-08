@@ -113,6 +113,9 @@ const handleModalClose = () => {
   return (
     <div className={styles.container}>
         <div className={styles.buttonsControl}>
+          <button onClick={() => buttonControl(0, 180)} className={styles.button}>
+            Rede Social: <br /> Convexa
+          </button>
           <button onClick={() => buttonControl(0, -90)} className={styles.button}>
             Projeto: <br /> Tarefas+
           </button>
@@ -166,15 +169,26 @@ const handleModalClose = () => {
 
           </div>
           <div className={`${styles.face} ${styles.back}`}>
-          <Background/> 
-          <Image
-            alt='Skills Logo Img'
-            src={skillsLogosImg}
-            className={styles.projectsImages}
-            draggable="false"
-          />
-
+            <div className={`${styles.face} ${styles.faceButton}`}>
+                <button
+                draggable='false' 
+                onMouseDown={(e) =>
+                  handleClick(e, () => handleModalOpen(5))
+                }               
+                >
+                  <RiPlayCircleFill className={styles.iconButton}/>
+                </button>
+              <Background/> 
+              <Image
+                alt="Convexa Logo"
+                src="/images/convexaLogo.png"
+                fill
+                className={styles.projectsImages}
+                draggable= "false"
+              />
+            </div>
           </div>
+
           <div className={`${styles.face} ${styles.left}`}>
             <div className={`${styles.face} ${styles.faceButton}`}>
                 <button

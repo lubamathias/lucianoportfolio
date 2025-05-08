@@ -1,6 +1,6 @@
 import { RiNextjsFill, RiReactjsFill, RiCss3Fill, RiNodejsFill } from "react-icons/ri";
 import { TbApi, TbBrandOauth } from "react-icons/tb";
-import { SiTypescript, SiFirebase, SiSass } from "react-icons/si";
+import { SiTypescript, SiFirebase, SiSass, SiShadcnui, SiClerk, SiPrisma, SiTailwindcss, SiPostgresql } from "react-icons/si";
 
 
 
@@ -83,6 +83,24 @@ export const projects: ProjectProps[] = [
         specifies: ['App Router', 'Responsividade', 'CSR', 'SSR/SSG', 'SEO'],
         url: 'https://tasks-app-livid.vercel.app/',
         haveURL: false
+    },
+
+    {
+        id: 5,
+        title: "Convexa",
+        description: "Protótipo completo de rede social, com utilização de diversas bibliotecas react, SQL, autenticação; com recurso de notificação, comentário, posts, anexo de imagens, entre outros",
+        skills: [
+            {name: "PostgreSQL", icon: <SiPostgresql/>},
+            {name: "Prisma", icon: <SiPrisma/>},
+            {name: "Clerk", icon: <SiClerk/>},
+            {name: "Shadcnui", icon: <SiShadcnui/>},
+            {name: "Tailwindcss", icon: <SiTailwindcss/>},
+            {name: "SASS", icon: <SiSass/>},     
+            {name: "React", icon: <RiReactjsFill/> },
+        ],
+        specifies: ['SQL', 'Autenticação', 'Responsividade', 'CSR', 'SSR/SSG', 'SEO'],
+        url: 'https://convexa.vercel.app/',
+        haveURL: true
     }
 
 

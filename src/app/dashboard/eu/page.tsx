@@ -112,7 +112,7 @@ export default function Eu(){
                         </p>
                     </div>
                 </section>
-                <section className={style.section3}>
+                {/*<section className={style.section3}>
                     <div className={style.transitionImgContainer}>
                         <Image
                             alt="Transition Img"
@@ -129,7 +129,7 @@ export default function Eu(){
                             Minha formação em Geociências e Educação Ambiental me ensinou a enxergar o mundo de forma interdisciplinar, conectando lógica e criatividade. Hoje, trago essa mesma perspectiva para o desenvolvimento web, onde construo interfaces que unem funcionalidade e estética.
                         </p>
                     </div>
-                </section>
+                </section>*/}
                 <section className={style.section2}>
                     <div className={style.techHeartContainer}>
                     <Image
@@ -162,7 +162,7 @@ export default function Eu(){
                             Aprendizado Contínuo
                         </h2>
                         <p>
-                            Tenho dedicado meu tempo a desenvolver projetos práticos e explorar tecnologias como HTML, CSS, JavaScript, React e Next.js, sempre com foco em resultados concretos e na evolução constante.
+                            Tenho unido aprendizado técnico e prática constante na criação de soluções digitais que geram valor real. Com uma base sólida na camada visual e interativa das aplicações, venho expandindo meu domínio para outras etapas do desenvolvimento, em busca de me tornar um desenvolvedor Full Stack completo.
                         </p>
                     </div>
                 </section>
