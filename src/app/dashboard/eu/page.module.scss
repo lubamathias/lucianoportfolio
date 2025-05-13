@@ -5,7 +5,8 @@
     justify-content: center;
     align-items: baseline;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
 
     overflow-y: auto;
     overflow-x: hidden;
@@ -66,7 +67,7 @@
         width: 100%;
         @include center-flex;
         font-family: "Exo", sans-serif;
-        font-size: xx-large;
+        font-size: x-large;
         font-style: italic;
         font-weight: 200;
         color: white;
