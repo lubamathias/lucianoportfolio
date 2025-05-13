@@ -12,19 +12,26 @@
     scroll-behavior: smooth;
     
     scroll-timeline-name: --textTimeline;
+    position: relative;
 
     
     
 }    
 
 .video {
-    z-index: -999;
-    position: absolute;
-    opacity: 0.2;
-    pointer-events: none;
-    object-fit: contain;
-    
-}    
+  position: fixed; // Alterado de absolute para fixed
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  opacity: 0.2;
+  pointer-events: none;
+  object-fit: cover; // Alterado de contain para cover
+}
 
 .main {
     display: flex;
