@@ -88,7 +88,7 @@ export const projects: ProjectProps[] = [
     {
         id: 5,
         title: "Convexa",
-        description: "Protótipo completo de rede social, com utilização de diversas bibliotecas react, SQL, autenticação; com recurso de notificação, comentário, posts, anexo de imagens, entre outros",
+        description: "Protótipo completo de rede social, com utilização de diversas bibliotecas react, SQL, autenticação; com recurso de notificação, comentário, posts, entre outros",
         skills: [
             {name: "PostgreSQL", icon: <SiPostgresql/>},
             {name: "Prisma", icon: <SiPrisma/>},

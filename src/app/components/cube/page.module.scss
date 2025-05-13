@@ -258,42 +258,47 @@
   }
 
   .cube {
-    margin-top: -150px;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
   }
 
 
   .front {
-    transform: translateZ(125px);
+    transform: translateZ(100px);
  }
 
   
   .back {
-    transform: rotateY(180deg) translateZ(125px);
+    transform: rotateY(180deg) translateZ(100px);
   
   }
   
   .left {
-    transform: rotateY(-90deg) translateZ(125px);
+    transform: rotateY(-90deg) translateZ(100px);
   }
   
   .right {
-    transform: rotateY(90deg) translateZ(125px);
+    transform: rotateY(90deg) translateZ(100px);
   }
   
   .top {
-    transform: rotateX(90deg) translateZ(125px);
+    transform: rotateX(90deg) translateZ(100px);
   }
   
   .bottom {
-    transform: rotateX(-90deg) translateZ(125px);
+    transform: rotateX(-90deg) translateZ(100px);
   }
 
   .projectsImages {
     opacity: 0.1;
   }
   .faceButton button {
-    opacity: 0.6;
+    opacity: 0.2;
   }
+
+  
+  .buttonAbout {
+    display: none;
+  }
+
 }

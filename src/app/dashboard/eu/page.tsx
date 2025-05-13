@@ -108,7 +108,7 @@ export default function Eu(){
                             Apaixonado por tecnologia
                         </h2>
                         <p>
-                            Sou apaixonado por tecnologia e pelo poder de transformar ideias em soluções digitais. Com uma base acadêmica sólida na USP, aprendi a pensar de forma analítica e a me adaptar a diferentes desafios - habilidades que hoje aplico no universo da programação.
+                            Sou apaixonado por tecnologia e pelo poder de transformar ideias em soluções digitais. Com uma base acadêmica em Geociências pelo Instituto de Geociências da USP, aprendi a pensar de forma analítica e a me adaptar a diferentes desafios - habilidades que hoje aplico no universo da programação.
                         </p>
                     </div>
                 </section>

@@ -125,7 +125,7 @@ const handleModalClose = () => {
           <button onClick={() => buttonControl(90, 0)} className={styles.button}>
               Projeto: <br /> Daily Games
           </button>
-          <button onClick={() => buttonControl(0, 90)} className={styles.button}>
+          <button onClick={() => buttonControl(0, 90)} className={`${styles.button} ${styles.buttonAbout}`}>
                Sobre meu portfólio
           </button>
         </div>
