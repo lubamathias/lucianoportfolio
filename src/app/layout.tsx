@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Luciano Mathias - Desenvolvedor Front-End",
     description:
-      "Explore os projetos de Luciano Mathias, desenvolvedor focado em entregar soluções tecnológicas usando React, Next.js e Firebase.",
+      "Explore os projetos de Luciano Mathias, desenvolvedor focado em entregar soluções com tecnologias modernas.",
     url: "https://lucianomathiasportfolio.vercel.app",
     siteName: "Luciano Mathias",
     images: [
