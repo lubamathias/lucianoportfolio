@@ -105,27 +105,27 @@ const handleModalClose = () => {
 
   const handleStopDragging = () => setIsDragging(false);
 
-  const buttonControl = (x: number, y: number) => {
+  const buttonControl = (x: number, y: number, projectId: number) => {
     setRotation({x, y})
-
+    handleModalOpen(projectId)
   }
 
   return (
     <div className={styles.container}>
         <div className={styles.buttonsControl}>
-          <button onClick={() => buttonControl(0, 180)} className={styles.button}>
+          <button onClick={() => buttonControl(0, 180, 5)} className={styles.button}>
             Rede Social: <br /> Convexa
           </button>
-          <button onClick={() => buttonControl(0, -90)} className={styles.button}>
+          <button onClick={() => buttonControl(0, -901, 3)} className={styles.button}>
             Projeto: <br /> Tarefas+
           </button>
-          <button onClick={() => buttonControl(-90, 0)} className={styles.button}>
+          <button onClick={() => buttonControl(-90, 0, 2)} className={styles.button}>
           Projeto: <br /> Repo. Gitub
           </button>
-          <button onClick={() => buttonControl(90, 0)} className={styles.button}>
+          <button onClick={() => buttonControl(90, 0, 1)} className={styles.button}>
               Projeto: <br /> Daily Games
           </button>
-          <button onClick={() => buttonControl(0, 90)} className={`${styles.button} ${styles.buttonAbout}`}>
+          <button onClick={() => buttonControl(0, 90, 4)} className={`${styles.button} ${styles.buttonAbout}`}>
                Sobre meu portfólio
           </button>
         </div>
