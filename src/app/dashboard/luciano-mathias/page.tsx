@@ -12,7 +12,8 @@ import transition from "/public/images/transition.png";
 /* Icons*/
 import { RiNextjsFill, RiReactjsFill, RiNodejsFill, RiLightbulbFill } from "react-icons/ri";
 import { TbApi } from "react-icons/tb";
-import { SiTypescript, SiSass } from "react-icons/si";
+import { SiTypescript, SiSass, SiTailwindcss, SiPostgresql } from "react-icons/si"; // Adicionados Tailwind e SQL
+
 
 
 
@@ -27,14 +28,16 @@ export default function Eu(){
             playsInline
             className={style.video}
             />
+            <h1 className={style.visuallyHidden}>Luciano Mathias</h1>
             <main className={style.main}>
                 <section className={style.section1}>
                     <Image
-                        alt="Foto Perfil"
+                        alt="Luciano Mathias"
                         src={fotoPerfil}
                         width={225}
                         className={style.fotoPerfil}
                     />
+                    
                     <div className={style.apresetation}>
                         <div className={style.text}>
                             <h2>
@@ -60,38 +63,49 @@ export default function Eu(){
                                 <strong>Experiência com Next.js, React e TypeScript,</strong> desenvolvendo aplicações web dinâmicas e escaláveis.
                             </li>
                             <li>
-                                Interesse em <strong>explorar mais sobre desenvolvimento full-stack,</strong> ampliando minha compreensão do ciclo completo de desenvolvimento.
+                                
+                                    <strong>Criação de aplicações completas</strong>, com APIs e banco de dados para entregar soluções funcionais e escaláveis.
+                                
                             </li>
                         </ul>
                     </div>
                     <div className={style.conteiner2}>
                         <ul>
                             <li>
-                                <RiNextjsFill className={`${style.icons} ${style.icons4}`}/>
-                                Next.js
+                            <RiNextjsFill className={`${style.icons} ${style.icons4}`} />
+                            Next.js
                             </li>
                             <li>
-                                <RiReactjsFill className={`${style.icons} ${style.icons2}`}/>
-                                React
+                            <RiReactjsFill className={`${style.icons} ${style.icons2}`} />
+                            React
                             </li>
                             <li>
-                                <SiTypescript className={`${style.icons} ${style.icons3}`}/>
-                                TypeScript
+                            <SiTypescript className={`${style.icons} ${style.icons3}`} />
+                            TypeScript
                             </li>
                             <li>
-                                <RiNodejsFill className={`${style.icons} ${style.icons1}`}/>
-                                Node.js
+                            <RiNodejsFill className={`${style.icons} ${style.icons1}`} />
+                            Node.js
                             </li>
                             <li>
-                                <TbApi className={`${style.icons} ${style.icons5}`}/>
-                                APIs
+                            <TbApi className={`${style.icons} ${style.icons5}`} />
+                            APIs
                             </li>
                             <li>
-                                <SiSass className={`${style.icons} ${style.icons4}`}/>
-                                CSS/SASS
+                            <SiSass className={`${style.icons} ${style.icons4}`} />
+                            CSS/SASS
+                            </li>
+                            <li>
+                            <SiTailwindcss className={`${style.icons} ${style.icons4}`} />
+                            Tailwind
+                            </li>
+                            <li>
+                            <SiPostgresql className={`${style.icons} ${style.icons3}`} />
+                            SQL
                             </li>
                         </ul>
-                    </div>
+                        </div>
+
                 </section>
 
                 <section className={style.section2}>
@@ -159,12 +173,13 @@ export default function Eu(){
                     </div>
                     <div className={style.textContainer}>
                         <h2>
-                            Aprendizado Contínuo
+                             Desenvolvimento Full-Stack
                         </h2>
                         <p>
-                            Tenho unido aprendizado técnico e prática constante na criação de soluções digitais que geram valor real. Com uma base sólida na camada visual e interativa das aplicações, venho expandindo meu domínio para outras etapas do desenvolvimento, em busca de me tornar um desenvolvedor Full Stack completo.
+                            Desenvolvo aplicações completas, integrando front-end, back-end, APIs e bancos de dados para entregar soluções escaláveis e eficientes. Com experiência consolidada em Next.js, React, Node.js e bancos relacionais, sou capaz de transformar demandas complexas em sistemas funcionais e de alto desempenho.
                         </p>
                     </div>
+
                 </section>
 
                 <section className={style.section1}>

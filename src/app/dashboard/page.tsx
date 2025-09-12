@@ -20,7 +20,7 @@ export default function Dashboard() {
             className={style.bgVideo}
             />
             <div className={style.container}>
-                <Link href={"dashboard/eu"} className={style.cardsLink}>
+                <Link href={"dashboard/luciano-mathias"} className={style.cardsLink}>
                 {/*"Foto de Guillaume Meurice: https://www.pexels.com/pt-br/foto/pessoa-dentro-de-um-edificio-olhando-para-uma-estrutura-2808402/"*/}
                     <div className={style.cardsContainer}>
                         <Image
