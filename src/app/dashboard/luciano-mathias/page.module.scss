@@ -662,6 +662,25 @@
         animation: yellowLightForMobile 3s ease-out infinite;
     }
 
+    .section4 {
+        .conteiner2 {
+            ul {
+            li {
+                font-size: medium; // reduz o texto
+                flex: 0 0 45%; // aumenta a largura de cada item para caber melhor
+                justify-content: flex-start;
+                gap: 6px;
+
+                .icons {
+                width: 28px; // menor no mobile
+                height: 28px;
+                }
+            }
+            }
+        }
+    }
+
+
 
 }
 

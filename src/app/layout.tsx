@@ -3,9 +3,19 @@ import "./globals.scss";
 import { Exo, Inter, Amatic_SC } from "next/font/google";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
-const exo = Exo({ subsets: ["latin"], weight: ["200", "500"] });
-const amaticSc = Amatic_SC({ subsets: ["latin"], weight: ["400", "700"] });
+const inter = Inter({
+  subsets: ["latin"],
+});
+
+const exo = Exo({
+  subsets: ["latin"],
+  weight: ["200", "500"],
+});
+
+const amaticSc = Amatic_SC({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Luciano Mathias - Desenvolvedor Front-End",
@@ -14,7 +24,32 @@ export const metadata: Metadata = {
   other: {
     "google-site-verification": "TANxqOD-DWUTf1eQh5Y3moVO3vSuwhARLaww5_1vjFA",
   },
-  authors: [{ name: "Luciano Mathias", url: "https://lucianomathias.com.br" }],
+  keywords: [
+    "desenvolvedor front-end",
+    "desenvolvedor",
+    "portfólio desenvolvedor front",
+    "Full-stack",
+    "portfólio",
+    "Luciano Mathias",
+    "Luciano",
+    "Mathias",
+    "React",
+    "Next.js",
+    "Next",
+    "programador",
+    "portfólio de programação",
+    "JavaScript",
+    "tecnologia",
+    "desenvolvedor React",
+    "React developer",
+    "desenvolvedor Next.js",
+    "desenvolvedor Next",
+    "Next.js developer",
+  ],
+
+  authors: [
+    { name: "Luciano Mathias", url: "https://lucianomathias.com.br" },
+  ],
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
@@ -37,13 +72,6 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Luciano Mathias - Desenvolvedor Front-End",
-    description:
-      "Portfólio e projetos de Luciano Mathias, especialista em Next.js e React.",
-    images: ["https://lucianomathias.com.br/images/fotoPerfilSeo.jpg"],
-  },
   robots: {
     index: true,
     follow: true,
@@ -55,16 +83,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html
       lang="pt-BR"
       className={`${exo.className} ${inter.className} ${amaticSc.className}`}
     >
-      <head />
-      <body className="antialiased">
+      <head>
         {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
@@ -79,23 +106,30 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Schema.org Person */}
-        <Script id="schema-person" type="application/ld+json" strategy="afterInteractive">
+        {/* JSON-LD Schema.org */}
+        <Script id="json-ld" type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Luciano Mathias",
             url: "https://lucianomathias.com.br",
+            image: "https://lucianomathias.com.br/images/fotoPerfilSeo.jpg",
+            jobTitle: "Desenvolvedor Full-Stack",
+            worksFor: {
+              "@type": "Organization",
+              name: "Freelancer",
+            },
             sameAs: [
               "https://github.com/lubamathias",
-              "https://www.linkedin.com/in/lucianomathiasamorim/",
+              "https://www.linkedin.com/in/lucianomathiasamorim",
             ],
-            jobTitle: "Desenvolvedor Full-Stack",
           })}
         </Script>
 
-        {children}
-      </body>
+        {/* Fallback manual para o favicon */}
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
