@@ -50,7 +50,7 @@ export default function Eu(){
                 <section className={style.section4}>
                     <div className={style.conteiner1}>
                         <h2>
-                            Desenvolvedor em constante evolução
+                            Transformando complexidade em interfaces claras e funcionais
                         </h2>
                         <ul>
                             <li>
