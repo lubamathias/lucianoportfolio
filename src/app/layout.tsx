@@ -47,9 +47,7 @@ export const metadata: Metadata = {
     "Next.js developer",
   ],
 
-  authors: [
-    { name: "Luciano Mathias", url: "https://lucianomathias.com.br" },
-  ],
+  authors: [{ name: "Luciano Mathias", url: "https://lucianomathias.com.br" }],
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
@@ -110,18 +108,49 @@ export default function RootLayout({
         <Script id="json-ld" type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Luciano Mathias",
-            url: "https://lucianomathias.com.br",
-            image: "https://lucianomathias.com.br/images/fotoPerfilSeo.jpg",
-            jobTitle: "Desenvolvedor Full-Stack",
-            worksFor: {
-              "@type": "Organization",
-              name: "Freelancer",
-            },
-            sameAs: [
-              "https://github.com/lubamathias",
-              "https://www.linkedin.com/in/lucianomathiasamorim",
+            "@graph": [
+              {
+                "@type": "WebSite",
+                "@id": "https://lucianomathias.com.br/#website",
+                url: "https://lucianomathias.com.br",
+                name: "Luciano Mathias",
+                inLanguage: "pt-BR",
+                publisher: { "@id": "https://lucianomathias.com.br/#luciano" },
+              },
+              {
+                "@type": "Person",
+                "@id": "https://lucianomathias.com.br/#luciano",
+                name: "Luciano Mathias",
+                url: "https://lucianomathias.com.br",
+                image: {
+                  "@type": "ImageObject",
+                  url: "https://lucianomathias.com.br/images/fotoPerfilSeo.jpg",
+                },
+                jobTitle: "Desenvolvedor Front-End",
+                mainEntityOfPage: "https://lucianomathias.com.br",
+                knowsAbout: [
+                  "React",
+                  "Next.js",
+                  "TypeScript",
+                  "JavaScript",
+                  "Node.js",
+                  "Tailwind CSS",
+                  "SEO técnico",
+                ],
+                alumniOf: [
+                  {
+                    "@type": "CollegeOrUniversity",
+                    name: "Universidade de São Paulo (USP)",
+                  },
+                ],
+                sameAs: [
+                  "https://github.com/lubamathias",
+                  "https://www.linkedin.com/in/lucianomathiasamorim/",
+                  "https://www.instagram.com/lucianomathias.dev/",
+                  "https://www.instagram.com/trendahora/",
+                  "https://trendahora.com.br",
+                ],
+              },
             ],
           })}
         </Script>
