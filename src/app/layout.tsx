@@ -6,9 +6,7 @@ import Script from "next/script";
 const siteUrl = "https://lucianomathias.com.br";
 const trendahoraUrl = "https://trendahora.com.br";
 
-// IMPORTANTE:
-// Troque este caminho se o logo real do Trendahora estiver em outra URL pública.
-// A URL precisa existir e abrir direto a imagem.
+// Troque se o logo real do Trendahora estiver em outra URL pública.
 const trendahoraLogoUrl = "https://trendahora.com.br/logo.png";
 
 const inter = Inter({
@@ -34,7 +32,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: "Luciano Mathias | Desenvolvedor Web, Next.js e Criador do Trendahora",
+    default:
+      "Luciano Mathias | Desenvolvedor Web, Next.js e Criador do Trendahora",
     template: "%s | Luciano Mathias",
   },
 
@@ -241,9 +240,7 @@ const jsonLd = {
       founder: {
         "@id": `${siteUrl}/#person`,
       },
-      sameAs: [
-        "https://www.instagram.com/trendahora/"
-      ],
+      sameAs: ["https://www.instagram.com/trendahora/"],
     },
 
     {
@@ -272,6 +269,7 @@ const jsonLd = {
             inLanguage: "pt-BR",
           },
         },
+
         {
           "@type": "ListItem",
           position: 2,
@@ -287,6 +285,7 @@ const jsonLd = {
             inLanguage: "pt-BR",
           },
         },
+
         {
           "@type": "ListItem",
           position: 3,
@@ -302,11 +301,12 @@ const jsonLd = {
             inLanguage: "pt-BR",
           },
         },
+
         {
           "@type": "ListItem",
           position: 4,
           item: {
-            "@type": "WebApplication",
+            "@type": "CreativeWork",
             name: "Convexa",
             url: "https://convexa.vercel.app/",
             description:
@@ -314,15 +314,15 @@ const jsonLd = {
             creator: {
               "@id": `${siteUrl}/#person`,
             },
-            applicationCategory: "SocialNetworkingApplication",
             inLanguage: "pt-BR",
           },
         },
+
         {
           "@type": "ListItem",
           position: 5,
           item: {
-            "@type": "WebApplication",
+            "@type": "CreativeWork",
             name: "Repositórios GitHub",
             url: "https://github-repositories-ecru.vercel.app/",
             description:
@@ -330,7 +330,6 @@ const jsonLd = {
             creator: {
               "@id": `${siteUrl}/#person`,
             },
-            applicationCategory: "DeveloperApplication",
             inLanguage: "pt-BR",
           },
         },
