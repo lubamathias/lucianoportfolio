@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, type MouseEvent, type TouchEvent } from "react";
 import styles from "./page.module.scss";
 import Image from "next/image";
 import Modal from "../modal";
@@ -8,34 +8,37 @@ import { projects, ProjectProps } from "@/app/projects/data";
 import { RiPlayCircleFill } from "react-icons/ri";
 import { Background } from "../background";
 
+type Position = {
+  x: number;
+  y: number;
+};
+
+const DRAG_SENSITIVITY = 0.6;
+
 export default function Cube() {
-  const cubeRef = useRef(null);
+  const lastPositionRef = useRef<Position>({ x: 0, y: 0 });
+
   const [isDragging, setIsDragging] = useState(false);
-  const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
-  const [rotation, setRotation] = useState({ x: 0, y: 0 });
-  const [initialPosicion, setInicialPosition] = useState<{
-    x: number;
-    y: number;
-  } | null>({ x: 0, y: 0 });
+  const [rotation, setRotation] = useState({ x: 14, y: -14 });
 
-  const resetDragState = () => {
-    setIsDragging(false);
-    setLastPosition({ x: 0, y: 0 });
-    setInicialPosition(null);
-  };
-
-  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ProjectProps | null>(
     null
   );
 
+  const resetDragState = () => {
+    setIsDragging(false);
+    lastPositionRef.current = { x: 0, y: 0 };
+  };
+
   const handleModalOpen = (projectId: number) => {
     const project = projects.find((p) => p.id === projectId);
 
-    if (project) {
-      setModalIsOpen(true);
-      setSelectedProject(project);
-    }
+    if (!project) return;
+
+    setSelectedProject(project);
+    setModalIsOpen(true);
+    resetDragState();
   };
 
   const handleModalClose = () => {
@@ -43,53 +46,64 @@ export default function Cube() {
     resetDragState();
   };
 
-  const handleMove = (x: number, y: number) => {
-    const deltaX = x - lastPosition.x;
-    const deltaY = y - lastPosition.y;
+  const startDrag = (x: number, y: number) => {
+    if (modalIsOpen) return;
+
+    setIsDragging(true);
+    lastPositionRef.current = { x, y };
+  };
+
+  const moveCube = (x: number, y: number) => {
+    if (!isDragging || modalIsOpen) return;
+
+    const deltaX = x - lastPositionRef.current.x;
+    const deltaY = y - lastPositionRef.current.y;
 
     setRotation((prev) => ({
-      x: prev.x - deltaY * 0.6,
-      y: prev.y + deltaX * 0.6,
+      x: prev.x - deltaY * DRAG_SENSITIVITY,
+      y: prev.y + deltaX * DRAG_SENSITIVITY,
     }));
 
-    setLastPosition({ x, y });
+    lastPositionRef.current = { x, y };
   };
 
-  const handleMouseMove = (e: React.MouseEvent): void => {
-    if (!isDragging) return;
-    handleMove(e.clientX, e.clientY);
+  const handleMouseDown = (event: MouseEvent<HTMLDivElement>) => {
+    startDrag(event.clientX, event.clientY);
   };
 
-  const handleTouchMove = (e: React.TouchEvent): void => {
-    if (!isDragging) return;
-
-    const touch = e.touches[0];
-    handleMove(touch.clientX, touch.clientY);
+  const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+    moveCube(event.clientX, event.clientY);
   };
 
-  const handleMouseDown = (e: React.MouseEvent): void => {
-    setIsDragging(true);
-    setLastPosition({ x: e.clientX, y: e.clientY });
-    setInicialPosition({ x: e.clientX, y: e.clientY });
+  const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    const touch = event.touches[0];
+    if (!touch) return;
+
+    startDrag(touch.clientX, touch.clientY);
   };
 
-  const handleTouchStart = (e: React.TouchEvent): void => {
-    const touch = e.touches[0];
+  const handleTouchMove = (event: TouchEvent<HTMLDivElement>) => {
+    const touch = event.touches[0];
+    if (!touch) return;
 
-    setIsDragging(true);
-    setLastPosition({ x: touch.clientX, y: touch.clientY });
-    setInicialPosition({ x: touch.clientX, y: touch.clientY });
+    moveCube(touch.clientX, touch.clientY);
   };
 
-  const handleClick = (event: React.MouseEvent, onClick: () => void) => {
-    if (!lastPosition || !initialPosicion) {
-      return;
-    }
-
-    onClick();
+  const handleStopDragging = () => {
+    setIsDragging(false);
   };
 
-  const handleStopDragging = () => setIsDragging(false);
+  const openFaceProject = (
+    event: MouseEvent<HTMLButtonElement>,
+    projectId: number
+  ) => {
+    event.stopPropagation();
+    handleModalOpen(projectId);
+  };
+
+  const stopButtonDrag = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+  };
 
   const buttonControl = (x: number, y: number, projectId: number) => {
     setRotation({ x, y });
@@ -97,56 +111,65 @@ export default function Cube() {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.buttonsControl}>
+    <main className={styles.container}>
+      <aside className={styles.buttonsControl} aria-label="Controles do cubo">
         <button
+          type="button"
           onClick={() => buttonControl(90, 0, 1)}
           className={styles.button}
         >
-          Portal: <br /> Trendahora
+          <span className={styles.buttonKicker}>Portal</span>
+          <span>Trendahora</span>
         </button>
 
         <button
+          type="button"
           onClick={() => buttonControl(-90, 0, 2)}
           className={styles.button}
         >
-          Projeto: <br /> Repo. GitHub
+          <span className={styles.buttonKicker}>Projeto</span>
+          <span>GitHub</span>
         </button>
 
         <button
+          type="button"
           onClick={() => buttonControl(0, -90, 3)}
           className={styles.button}
         >
-          Cliente: <br /> Corso Moura
+          <span className={styles.buttonKicker}>Cliente</span>
+          <span>Corso Moura</span>
         </button>
 
         <button
+          type="button"
           onClick={() => buttonControl(0, 90, 4)}
           className={styles.button}
         >
-          Cliente: <br /> Adestrador
+          <span className={styles.buttonKicker}>Cliente</span>
+          <span>Adestrador</span>
         </button>
 
         <button
+          type="button"
           onClick={() => buttonControl(0, 180, 5)}
           className={styles.button}
         >
-          Rede Social: <br /> Convexa
+          <span className={styles.buttonKicker}>Rede social</span>
+          <span>Convexa</span>
         </button>
-      </div>
+      </aside>
 
-      <div>
-        {modalIsOpen && (
-          <Modal
-            isOpen={modalIsOpen}
-            onClose={handleModalClose}
-            project={selectedProject}
-          />
-        )}
-      </div>
+      {modalIsOpen && (
+        <Modal
+          isOpen={modalIsOpen}
+          onClose={handleModalClose}
+          project={selectedProject}
+        />
+      )}
 
-      <div
+      <section
         className={styles.scene}
+        aria-label="Cubo interativo com projetos"
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}
         onMouseUp={handleStopDragging}
@@ -154,129 +177,160 @@ export default function Cube() {
         onTouchMove={handleTouchMove}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleStopDragging}
+        onTouchCancel={handleStopDragging}
       >
         <div
-          className={styles.cube}
-          ref={cubeRef}
+          className={`${styles.cube} ${isDragging ? styles.dragging : ""}`}
           style={{
             transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
           }}
         >
           <div className={`${styles.face} ${styles.front}`}>
-            <p>
+            <div className={styles.backgroundLayer}>
+              <Background />
+            </div>
+
+            <div className={styles.frontContent}>
               <strong>Gire, descubra e inspire-se.</strong>
-              <br />
-              Este não é um cubo comum, é a porta para o meu mundo.
-            </p>
-            <Background />
-          </div>
-
-          <div className={`${styles.face} ${styles.back}`}>
-            <div className={`${styles.face} ${styles.faceButton}`}>
-              <button
-                draggable="false"
-                onMouseDown={(e) => handleClick(e, () => handleModalOpen(5))}
-              >
-                <RiPlayCircleFill className={styles.iconButton} />
-              </button>
-
-              <Background />
-
-              <Image
-                alt="Logo do projeto Convexa"
-                src="/images/convexaLogo.png"
-                fill
-                className={styles.projectsImages}
-                draggable="false"
-              />
+              <span>Projetos reais, tecnologia e produto digital.</span>
             </div>
           </div>
 
-          <div className={`${styles.face} ${styles.left}`}>
-            <div className={`${styles.face} ${styles.faceButton}`}>
-              <button
-                draggable="false"
-                onMouseDown={(e) => handleClick(e, () => handleModalOpen(4))}
-              >
-                <RiPlayCircleFill className={styles.iconButton} />
-              </button>
-
+          <div className={`${styles.face} ${styles.back} ${styles.faceButton}`}>
+            <div className={styles.backgroundLayer}>
               <Background />
-
-              <Image
-                alt="Imagem do projeto Flávio Adestrador"
-                src="/images/flavioAdestrador.png"
-                fill
-                className={styles.projectsImages}
-                draggable="false"
-              />
             </div>
+
+            <Image
+              alt="Logo do projeto Convexa"
+              src="/images/convexaLogo.png"
+              fill
+              sizes="(max-width: 678px) 210px, 300px"
+              className={styles.projectsImages}
+              draggable="false"
+            />
+
+            <button
+              type="button"
+              draggable="false"
+              onMouseDown={stopButtonDrag}
+              onClick={(event) => openFaceProject(event, 5)}
+              className={styles.faceOpenButton}
+              aria-label="Abrir projeto Convexa"
+            >
+              <RiPlayCircleFill className={styles.iconButton} />
+            </button>
           </div>
 
-          <div className={`${styles.face} ${styles.right}`}>
-            <div className={`${styles.face} ${styles.faceButton}`}>
-              <button
-                draggable="false"
-                onMouseDown={(e) => handleClick(e, () => handleModalOpen(3))}
-              >
-                <RiPlayCircleFill className={styles.iconButton} />
-              </button>
-
+          <div className={`${styles.face} ${styles.left} ${styles.faceButton}`}>
+            <div className={styles.backgroundLayer}>
               <Background />
-
-              <Image
-                alt="Imagem do projeto Corso Moura Arquitetura"
-                src="/images/corsoMoura.png"
-                fill
-                className={styles.projectsImages}
-                draggable="false"
-              />
             </div>
+
+            <Image
+              alt="Imagem do projeto Flávio Adestrador"
+              src="/images/flavioAdestrador.png"
+              fill
+              sizes="(max-width: 678px) 210px, 300px"
+              className={styles.projectsImages}
+              draggable="false"
+            />
+
+            <button
+              type="button"
+              draggable="false"
+              onMouseDown={stopButtonDrag}
+              onClick={(event) => openFaceProject(event, 4)}
+              className={styles.faceOpenButton}
+              aria-label="Abrir projeto Flávio Adestrador"
+            >
+              <RiPlayCircleFill className={styles.iconButton} />
+            </button>
           </div>
 
-          <div className={`${styles.face} ${styles.top}`}>
-            <div className={`${styles.face} ${styles.faceButton}`}>
-              <button
-                draggable="false"
-                onMouseDown={(e) => handleClick(e, () => handleModalOpen(2))}
-              >
-                <RiPlayCircleFill className={styles.iconButton} />
-              </button>
-
+          <div
+            className={`${styles.face} ${styles.right} ${styles.faceButton}`}
+          >
+            <div className={styles.backgroundLayer}>
               <Background />
-
-              <Image
-                alt="Imagem do projeto Repositórios GitHub"
-                src="/images/gitHubRepositories.jpeg"
-                fill
-                className={styles.projectsImages}
-                draggable="false"
-              />
             </div>
+
+            <Image
+              alt="Imagem do projeto Corso Moura Arquitetura"
+              src="/images/corsoMoura.png"
+              fill
+              sizes="(max-width: 678px) 210px, 300px"
+              className={styles.projectsImages}
+              draggable="false"
+            />
+
+            <button
+              type="button"
+              draggable="false"
+              onMouseDown={stopButtonDrag}
+              onClick={(event) => openFaceProject(event, 3)}
+              className={styles.faceOpenButton}
+              aria-label="Abrir projeto Corso Moura Arquitetura"
+            >
+              <RiPlayCircleFill className={styles.iconButton} />
+            </button>
           </div>
 
-          <div className={`${styles.face} ${styles.bottom}`}>
-            <div className={`${styles.face} ${styles.faceButton}`}>
-              <button
-                draggable="false"
-                onMouseDown={(e) => handleClick(e, () => handleModalOpen(1))}
-              >
-                <RiPlayCircleFill className={styles.iconButton} />
-              </button>
-
+          <div className={`${styles.face} ${styles.top} ${styles.faceButton}`}>
+            <div className={styles.backgroundLayer}>
               <Background />
-
-              <Image
-                alt="Imagem do projeto Trendahora"
-                src="/images/trendahora.png"
-                fill
-                className={styles.projectsImages}
-                draggable="false"
-              />
             </div>
+
+            <Image
+              alt="Imagem do projeto Repositórios GitHub"
+              src="/images/gitHubRepositories.jpeg"
+              fill
+              sizes="(max-width: 678px) 210px, 300px"
+              className={styles.projectsImages}
+              draggable="false"
+            />
+
+            <button
+              type="button"
+              draggable="false"
+              onMouseDown={stopButtonDrag}
+              onClick={(event) => openFaceProject(event, 2)}
+              className={styles.faceOpenButton}
+              aria-label="Abrir projeto Repositórios GitHub"
+            >
+              <RiPlayCircleFill className={styles.iconButton} />
+            </button>
+          </div>
+
+          <div
+            className={`${styles.face} ${styles.bottom} ${styles.faceButton}`}
+          >
+            <div className={styles.backgroundLayer}>
+              <Background />
+            </div>
+
+            <Image
+              alt="Imagem do projeto Trendahora"
+              src="/images/trendahora.png"
+              fill
+              sizes="(max-width: 678px) 210px, 300px"
+              className={styles.projectsImages}
+              draggable="false"
+            />
+
+            <button
+              type="button"
+              draggable="false"
+              onMouseDown={stopButtonDrag}
+              onClick={(event) => openFaceProject(event, 1)}
+              className={styles.faceOpenButton}
+              aria-label="Abrir projeto Trendahora"
+            >
+              <RiPlayCircleFill className={styles.iconButton} />
+            </button>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

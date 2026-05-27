@@ -1,28 +1,53 @@
 @import "./../../scss/scss.scss";
 
 .container {
-  @include center-flex;
   width: 100%;
-  height: 100vh;
+  min-height: 100svh;
 
+  display: grid;
+  grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 3rem);
+
+  padding: clamp(1rem, 3vw, 2rem);
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .buttonsControl {
-  @include center-flex;
-  flex-direction: column;
-  width: auto;
-  height: auto;
-  margin-left: 10%;
+  width: 100%;
+  max-width: 190px;
 
-  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
 
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.322) 0%, rgba(192, 192, 192, 0.171) 25%, rgba(56, 102, 109, 0.699) 50%, rgba(218, 208, 223, 0.212) 75%);
+  padding: clamp(0.75rem, 2vw, 1rem);
+  box-sizing: border-box;
+
+  border-radius: 1.25rem;
+
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.26) 0%,
+    rgba(192, 192, 192, 0.12) 25%,
+    rgba(56, 102, 109, 0.52) 50%,
+    rgba(218, 208, 223, 0.14) 75%
+  );
   background-size: 300%;
-  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.7);
 
-  animation: moving 5s ease infinite;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.34),
+    inset 0 0 18px rgba(255, 255, 255, 0.05);
 
+  backdrop-filter: blur(8px);
 
+  animation: moving 6s ease infinite;
+
+  z-index: 10;
 }
 
 @keyframes moving {
@@ -40,114 +65,344 @@
 }
 
 .button {
-  width: 120px;
-  font-family: "Exo";
-  margin-top: 10px;
-  padding: 5px;
-  color: black;
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.18rem;
+  padding: 0.55rem 0.65rem;
+  box-sizing: border-box;
+
+  font-family: "Exo", sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.12;
+  text-align: center;
+
+  color: #071018;
   background: $color-tertiary;
-  border: none;
-  border-radius: 5px;
-  opacity: 1;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.75rem;
+
   cursor: pointer;
 
-  transition: all 0.1s;
-  
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease;
 }
+
 .button:hover {
-  background: rgba(219, 216, 216, 0.815)
+  transform: translateY(-2px);
+  background: rgba(245, 245, 245, 0.94);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+.button:focus-visible {
+  outline: 2px solid whitesmoke;
+  outline-offset: 3px;
+}
+
+.buttonKicker {
+  display: block;
+
+  font-size: 0.68rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.72;
 }
 
 .scene {
-  
-  @include center-flex;
-  width: 85%;
-  height: 85%;
-  perspective: 800px;
-  margin: 0 auto;
-  animation: fadeIn 3s ease-in-out;
+  width: 100%;
+  min-width: 0;
+  min-height: min(72svh, 620px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 900px;
+  cursor: grab;
+
+  touch-action: none;
+
+  overflow: visible;
+
+  animation: fadeIn 1.2s ease-in-out;
 }
 
+.scene:active {
+  cursor: grabbing;
+}
 
 .cube {
-  width: 300px;
-  height: 300px;
+  --cube-size: clamp(230px, 34vw, 320px);
+  --cube-depth: calc(var(--cube-size) / 2);
+
+  width: var(--cube-size);
+  height: var(--cube-size);
+
   position: relative;
-  
-  transform: rotateX(0deg) rotateY(0deg);
+
   transform-style: preserve-3d;
-  transition: transform 0.2s ease-out; /* Suaviza o movimento */
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+.dragging {
+  transition: none;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    
+    transform: translateY(18px);
   }
-  
+
   to {
     opacity: 1;
-    
+    transform: translateY(0);
   }
 }
 
-
-
 .face {
   position: absolute;
+  inset: 0;
+
   width: 100%;
   height: 100%;
-
-  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.7);
 
   display: flex;
   align-items: center;
   justify-content: center;
-  user-select:none;
-} 
+
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.075) 0%,
+      rgba(255, 255, 255, 0.018) 46%,
+      rgba(0, 134, 171, 0.055) 100%
+    ),
+    rgba(0, 0, 0, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.3),
+    0 0 36px rgba(0, 180, 220, 0.18),
+    inset 0 0 18px rgba(255, 255, 255, 0.055),
+    inset 0 0 38px rgba(0, 134, 171, 0.08);
+
+  backface-visibility: hidden;
+}
+
+.face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  border: 1px solid rgba(255, 255, 255, 0.32);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 24px rgba(255, 255, 255, 0.045),
+    0 0 16px rgba(255, 255, 255, 0.24),
+    0 0 30px rgba(0, 180, 220, 0.12);
+
+  z-index: 4;
+}
+
+.backgroundLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+.backgroundLayer * {
+  pointer-events: none;
+}
+
+.front {
+  transform: translateZ(var(--cube-depth));
+
+  flex-direction: column;
+  text-align: center;
+
+  font-family: "Amatic SC", serif;
+  color: white;
+  text-shadow: 3px 3px black;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.frontContent {
+  width: min(84%, 245px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+
+  padding: 0.85rem 0.9rem;
+  box-sizing: border-box;
+
+  border-radius: 1rem;
+
+  background: rgba(0, 0, 0, 0.14);
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.04),
+    0 0 22px rgba(0, 0, 0, 0.12);
+
+  z-index: 5;
+
+  strong {
+    font-weight: 700;
+    font-size: clamp(1.65rem, 4vw, 2.25rem);
+    line-height: 0.95;
+  }
+
+  span {
+    font-family: "Exo", sans-serif;
+    font-size: clamp(0.8rem, 1.6vw, 0.96rem);
+    line-height: 1.35;
+    text-shadow: 2px 2px black;
+  }
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(var(--cube-depth));
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(var(--cube-depth));
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(var(--cube-depth));
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(var(--cube-depth));
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(var(--cube-depth));
+}
 
 .faceButton {
-  background: transparent;
-
-  transition: all 0.4s;
-
-  button {
-    transition: all 0.4s;
-  }
+  transition:
+    background 0.28s ease,
+    box-shadow 0.28s ease;
 }
 
 .faceButton:hover {
-  background: rgba(245, 245, 245, 0.281);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(0, 134, 171, 0.06)
+    ),
+    rgba(255, 255, 255, 0.04);
 
-
-  button {
-    opacity: 1;
-    
-  }
-
-
+  box-shadow:
+    0 0 28px rgba(255, 255, 255, 0.36),
+    0 0 48px rgba(0, 180, 220, 0.2),
+    inset 0 0 24px rgba(255, 255, 255, 0.08);
 }
 
-.faceButton button {
-  z-index: 999999;
-  width: 50px;
-  height: 50px;
+.projectsImages {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0.08;
+
+  transition:
+    opacity 0.36s ease,
+    transform 0.36s ease,
+    filter 0.36s ease;
+
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+
+  filter: saturate(0.96) contrast(1.04);
+}
+
+.faceButton:hover .projectsImages {
+  opacity: 0.48;
+  transform: scale(1.035);
+  filter: saturate(1.04) contrast(1.06);
+}
+
+.faceOpenButton {
+  position: relative;
+  z-index: 20;
+
+  width: clamp(48px, 7vw, 58px);
+  height: clamp(48px, 7vw, 58px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
   opacity: 0;
   border-radius: 50%;
+  border: 1px double rgba(0, 134, 171, 0.82);
 
-  transition: all 0.4s;
-
-  border: 1px double #0086abc2;
-
-  color: transparent;
-  background: rgb(255, 255, 255);
+  color: #0086ab;
+  background: rgba(255, 255, 255, 0.94);
 
   cursor: pointer;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.faceButton button:hover {
+.faceButton:hover .faceOpenButton,
+.faceOpenButton:focus-visible {
   opacity: 1;
+  transform: scale(1.04);
+}
 
+.faceOpenButton:hover {
+  background: whitesmoke;
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.55),
+    0 0 28px rgba(0, 134, 171, 0.25);
+}
+
+.faceOpenButton:focus-visible {
+  outline: 2px solid whitesmoke;
+  outline-offset: 4px;
 }
 
 .iconButton {
@@ -155,150 +410,145 @@
   height: 100%;
 
   color: #0086ab;
-
   background: transparent;
+
+  pointer-events: none;
 }
 
-.video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;  // Faz com que o vídeo cubra toda a área, mantendo a proporção
-  z-index: -1;  // Coloca o vídeo atrás do conteúdo
-  opacity: 0.8;
-}
-
-
-
-.front {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  transform: translateZ(150px);
-  font-family: "Amatic SC", serif;
-  color: white;
-  text-shadow: 3px 3px black;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-
-  strong {
-    font-weight: 700;
-    font-size: x-large;
-  }
-}
-
-.back {
-  transform: rotateY(180deg) translateZ(150px);
-
-}
-
-.left {
-  transform: rotateY(-90deg) translateZ(150px);
-}
-
-.right {
-  transform: rotateY(90deg) translateZ(150px);
-}
-
-.top {
-  transform: rotateX(90deg) translateZ(150px);
-}
-
-.bottom {
-  transform: rotateX(-90deg) translateZ(150px);
-
-}
-.projectsImages {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  opacity: 0;
-  transition: 1s;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-.projectsImages:hover {
-
-  opacity: 0.7;
-
-
-}
-
-
-
-.bottom h2 {
-  color: transparent;
-  transition: all 3s;
-
-}
-
-@media (max-width: 678px){
+/* Tablet / notebook menor */
+@media (max-width: 1100px) {
   .container {
-    flex-direction: column;
-    padding: 15px;
-    margin-top: 80px;
+    grid-template-columns: 1fr;
+    align-items: start;
+    justify-items: center;
+
+    gap: 1.8rem;
   }
+
   .buttonsControl {
-    justify-content: space-between;
-    flex-direction: row;
-    height: 150px;
-    width: 250px;
-    flex-wrap: wrap;
-    margin-left: 0;
-    padding: 10px;
+    max-width: min(94vw, 680px);
+    grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
   }
+
   .button {
-    height: 50px;
-    flex: 1 1 45%;
-    margin-right: 3px;
+    min-height: 56px;
+    font-size: 0.8rem;
+    padding-inline: 0.45rem;
+  }
+
+  .scene {
+    min-height: min(68svh, 560px);
   }
 
   .cube {
-    width: 200px;
-    height: 200px;
+    --cube-size: clamp(230px, 42vw, 300px);
+  }
+}
+
+/* Celular */
+@media (max-width: 678px) {
+  .container {
+    min-height: 100svh;
+
+    gap: 1.2rem;
+    padding: 1rem;
+    padding-top: clamp(1rem, 4vw, 1.5rem);
+    padding-bottom: clamp(1.5rem, 6vw, 2.5rem);
   }
 
+  .buttonsControl {
+    max-width: min(100%, 420px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
 
-  .front {
-    transform: translateZ(100px);
- }
+    padding: 0.65rem;
+    border-radius: 1rem;
+  }
 
-  
-  .back {
-    transform: rotateY(180deg) translateZ(100px);
-  
+  .button {
+    min-height: 48px;
+    font-size: 0.78rem;
+    border-radius: 0.65rem;
   }
-  
-  .left {
-    transform: rotateY(-90deg) translateZ(100px);
+
+  .buttonKicker {
+    font-size: 0.62rem;
   }
-  
-  .right {
-    transform: rotateY(90deg) translateZ(100px);
+
+  .scene {
+    min-height: 360px;
+    perspective: 760px;
   }
-  
-  .top {
-    transform: rotateX(90deg) translateZ(100px);
-  }
-  
-  .bottom {
-    transform: rotateX(-90deg) translateZ(100px);
+
+  .cube {
+    --cube-size: clamp(190px, 64vw, 235px);
   }
 
   .projectsImages {
-    opacity: 0.1;
-  }
-  .faceButton button {
-    opacity: 0.2;
+    opacity: 0.18;
   }
 
-  
-  .buttonAbout {
-    display: none;
+  .faceButton:hover .projectsImages {
+    opacity: 0.44;
   }
 
+  .faceOpenButton {
+    opacity: 0.82;
+  }
+
+  .frontContent {
+    width: min(86%, 200px);
+
+    strong {
+      font-size: clamp(1.45rem, 9vw, 1.9rem);
+    }
+
+    span {
+      font-size: 0.78rem;
+    }
+  }
+}
+
+/* Celular muito pequeno */
+@media (max-width: 380px) {
+  .container {
+    padding-inline: 0.75rem;
+  }
+
+  .buttonsControl {
+    grid-template-columns: 1fr;
+    max-width: 260px;
+  }
+
+  .button {
+    min-height: 44px;
+  }
+
+  .scene {
+    min-height: 310px;
+  }
+
+  .cube {
+    --cube-size: 185px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .buttonsControl,
+  .scene,
+  .cube,
+  .button,
+  .faceButton,
+  .faceOpenButton,
+  .projectsImages {
+    animation: none;
+    transition: none;
+  }
+
+  .button:hover,
+  .faceButton:hover .projectsImages,
+  .faceButton:hover .faceOpenButton,
+  .faceOpenButton:hover {
+    transform: none;
+  }
 }
