@@ -8,7 +8,7 @@ import { RiArrowLeftLine } from "react-icons/ri";
 import trendahoraLogo from "@/../public/images/trendahora.png";
 
 const portfolioUrl = "https://lucianomathias.com.br";
-const pageUrl = `${portfolioUrl}/dashboard/trendahora`;
+const pageUrl = `${portfolioUrl}/projetos/trendahora`;
 const trendahoraUrl = "https://trendahora.com.br";
 
 export const metadata: Metadata = {
