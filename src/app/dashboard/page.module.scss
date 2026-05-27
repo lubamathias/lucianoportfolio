@@ -1,140 +1,263 @@
 @import "./../scss/scss.scss";
 
-
-
 .main {
-    width: 100%;
-    height: 100vh;
-    @include center-flex;
-    margin-top: -3rem;
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: clamp(1rem, 4vw, 3rem);
+  box-sizing: border-box;
+
+  overflow-x: hidden;
 }
 
 .bgVideo {
-    opacity: 0.3;
-    z-index: -999;
-    pointer-events: none;
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  opacity: 0.3;
+
+  z-index: -2;
+  pointer-events: none;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .container {
-    @include center-flex;
-    width: 60%;
-    position: absolute;
-    justify-content: space-around;
+  width: min(100%, 1180px);
 
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
 
-}
+  align-items: center;
+  justify-items: center;
 
-
-.cardsContainer {
-    height: 430px;
-    @include center-flex;
-    flex-direction: column;
- 
-    padding: 15px;
-    border-radius: 50%;
-    transition: all 1s;
-    margin: 7px;
-
-
-    animation: fadeIn 3.5s ease-in-out;
-
-
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0px);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 
 .cardsLink {
-    height: 430px;
- 
-    border-radius: 50%;
-    margin: -7px;
+  width: 100%;
+  max-width: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: inherit;
+
+  border-radius: 999px;
 }
 
+.cardsContainer {
+  width: 100%;
+  min-height: clamp(260px, 32vw, 430px);
 
-.cardsContainer h3 {
-    font-family: "Exo", serif;
-    font-size:medium;
-    font-optical-sizing: auto;
-    font-weight: 200;
-    font-style:normal;
-    padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  padding: clamp(0.75rem, 2vw, 1rem);
+
+  border-radius: 999px;
+  box-sizing: border-box;
+
+  transition:
+    transform 0.45s ease,
+    background 0.45s ease,
+    box-shadow 0.45s ease;
+
+  overflow: hidden;
 }
-
 
 .cardsContainer:hover {
-    background: rgba(0, 153, 255, 0.1);
-
-    transition: transform 2s;
-}
-.projectsImg {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
+  transform: translateY(-6px);
+  background: rgba(0, 153, 255, 0.1);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
 }
 
+.mediaBox {
+  position: relative;
+
+  width: clamp(140px, 15vw, 200px);
+  aspect-ratio: 1 / 1;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.projectsImg,
 .video {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    pointer-events: none;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  border-radius: 50%;
+
+  display: block;
+  pointer-events: none;
 }
 
+.cardsContainer h3 {
+  width: 100%;
+  max-width: 180px;
 
-@media screen and (max-width: 678px){
-    .container {
-      flex-direction: column;
-      max-height: 80%;
-      width: 80%;
-    }
+  margin: 0;
 
-    .cardsLink {
-        max-height: 200px;
-        width: 100%;
-        @include center-flex;
-     
-    }
-    .cardsContainer {
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: space-around;
+  font-family: "Exo", serif;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-weight: 200;
+  font-style: normal;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.08em;
 
-    }
+  color: whitesmoke;
 
-    .cardsContainer h3 {
-        width: 70px;
-        margin-top: 0;
-        font-size:large;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 
-    }
+.trendahoraMediaBox {
+  background: #ffd31000;
+}
 
-    .projectsImg {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
+.trendahoraImg {
+  object-fit: contain;
+  transform: scale(1.28);
+}
 
-    .video {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        z-index: -999;
-        pointer-events: none;
-    }
+/* Notebook menor / tablet grande */
+@media screen and (max-width: 1100px) {
+  .container {
+    width: min(100%, 760px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
+  .cardsLink {
+    max-width: 260px;
+  }
+
+  .cardsContainer {
+    min-height: 320px;
+  }
+
+  .mediaBox {
+    width: clamp(150px, 24vw, 190px);
+  }
+}
+
+/* Tablet e celular */
+@media screen and (max-width: 678px) {
+  .main {
+    align-items: flex-start;
+    padding: 1rem;
+    padding-top: clamp(1.5rem, 6vw, 3rem);
+    padding-bottom: clamp(1.5rem, 6vw, 3rem);
+  }
+
+  .container {
+    width: min(100%, 430px);
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .cardsLink {
+    max-width: none;
+    width: 100%;
+  }
+
+  .cardsContainer {
+    width: 100%;
+    min-height: auto;
+
+    flex-direction: row;
+    justify-content: flex-start;
+
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+
+    border-radius: 999px;
+  }
+
+  .mediaBox {
+    width: clamp(92px, 30vw, 140px);
+  }
+
+  .cardsContainer h3 {
+    max-width: none;
+    flex: 1;
+
+    font-size: clamp(0.9rem, 4vw, 1.15rem);
+    text-align: left;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Celulares muito pequenos */
+@media screen and (max-width: 380px) {
+  .main {
+    padding-inline: 0.75rem;
+  }
+
+  .cardsContainer {
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .mediaBox {
+    width: 88px;
+  }
+
+  .cardsContainer h3 {
+    font-size: 0.88rem;
+  }
+}
+
+/* Evita animação/hover exagerado para usuários com redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  .container {
+    animation: none;
+  }
+
+  .cardsContainer {
+    transition: none;
+  }
+
+  .cardsContainer:hover {
+    transform: none;
+  }
 }
