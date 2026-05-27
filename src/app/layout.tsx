@@ -154,11 +154,6 @@ const jsonLd = {
           "@id": `${trendahoraUrl}/#organization`,
         },
       ],
-      hasPart: [
-        {
-          "@id": `${siteUrl}/#projects`,
-        },
-      ],
     },
 
     {
